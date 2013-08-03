@@ -9,7 +9,6 @@ class BooksController < ApplicationController
     def mob_index
         @books = Book.all.includes(:author, :reviews)
         render action: "index", layout: "mob-application"
-        #render layout: "mob-application"
     end
 
     def show
