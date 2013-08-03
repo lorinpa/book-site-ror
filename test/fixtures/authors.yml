@@ -1,0 +1,12 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+    id: 1
+    first_name: Mark
+    last_name: Twain
+
+two:
+    id: 2
+    first_name: Brad
+    last_name: Meltzer
+

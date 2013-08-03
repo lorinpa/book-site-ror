@@ -1,0 +1,39 @@
+
+<h1><%= @category_title %> Books</h1>
+
+<table class="pure-table" style="letter-spacing:normal;">
+  <thead>
+      <tr>
+
+      <th>Book</th>
+      <th>Author</th>
+      <th>Reviews</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @book_categories.each do |book_category| %>
+        <tr>
+        <td><%= book_category.book.title %></td>
+        <td>
+        
+            <%= book_category.book.author.last_name %> , 
+            <%= book_category.book.author.first_name %>
+        </td>
+        <% if book_category.book.reviews.count > 0 %>
+            <td>
+                <a style="display:block;width:100%;text-align:right;" href="/reviews/book/<%= book_category.book.id %>">
+                    <%= book_category.book.reviews.count %>
+                </a>
+            </td>
+        <% else %>
+            <td> No Reviews Yet.</td>
+            <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Book category', new_book_category_path %>

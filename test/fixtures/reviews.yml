@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  body: Me like this.
+  stars: 5
+  book_id: 1
+
+two:
+    body: Me likey
+    stars: 5
+    book_id: 2

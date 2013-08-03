@@ -1,0 +1,27 @@
+<%= form_for(@category, html: {class:"pure-form pure-form-stacked padded_form"}) do |f| %>
+  <% if @category.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@category.errors.count, "error") %> prohibited this category from being saved:</h2>
+
+      <ul>
+      <% @category.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+<% end %>
+
+<% if flash[:duplicate_record_exception] %>
+<div id="error_explanation">
+    <%= flash[:duplicate_record_exception] %>
+</div>
+<% end %>
+<fieldset>
+        <legend>Category Form</legend>
+
+        <%= f.label :title %>
+        <%= f.text_field :title %>
+
+      <%= f.submit :class => "pure-button pure-button-primary"  %>
+    </fieldset>
+<% end %>

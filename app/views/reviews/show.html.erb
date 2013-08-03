@@ -1,0 +1,22 @@
+<p id="notice"><%= notice %></p>
+
+
+<div class="pure-g-r" style="letter-spacing:normal;">
+    <div class="pure-u-3-5">
+        <span style="font-weight:bold;"><%= @review.book.title %></span>
+    </div>
+</div>
+
+<div class="pure-g-r" style="letter-spacing:normal;">
+    <div class="pure-u-2-5">
+        <span style="font-weight:bold;"><%= @review.book.author.last_name %>, <%= @review.book.author.first_name%></span>
+    </div>
+    <div class="pure-u-1-5">Stars <%= @review.stars %></div>
+</div>
+
+<div class="pure-g-r" style="letter-spacing:normal;">
+    <%= @review.body %>
+
+</div>
+<%= link_to 'Edit', edit_review_path(@review) %> |
+<%= link_to 'Back', reviews_path %>

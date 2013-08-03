@@ -1,0 +1,23 @@
+
+<h1>Books by <%= @author.last_name %>, <%= @author.first_name%></h1>
+
+<table class="pure-table" style="letter-spacing:normal;">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Reviews</th>
+      <th>Categories</th>
+  </tr>
+  </thead>
+
+  <tbody>
+    <% @books.each do |book| %>
+        <tr>
+        <td><%= book.title %></td>
+        <td><%= reviews_link(book.id, book.reviews.count) %></td>
+        <td><%= categories_link(book.id, book.book_categories.count) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+

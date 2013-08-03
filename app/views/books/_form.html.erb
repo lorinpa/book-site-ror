@@ -1,0 +1,29 @@
+<%= form_for(@book, html: {class:"pure-form pure-form-stacked padded_form"}) do |f| %>
+  <% if @book.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@book.errors.count, "error") %> prohibited this book from being saved:</h2>
+
+      <ul>
+      <% @book.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+    <% if flash[:duplicate_record_exception] %>
+    <div id="error_explanation">
+        <%= flash[:duplicate_record_exception] %>
+    </div>
+    <% end %>
+
+    <fieldset>
+        <legend>Book Form</legend>
+
+        <%= f.label :title %>
+        <%= f.text_field :title %>
+        <%= select("book", "author_id", Author.all.collect {|p| [ p.last_name + ", " + p.first_name , p.id ] }, {include_blank: 'None'}) %>
+
+      <%= f.submit :class => "pure-button pure-button-primary actions"  %>
+    </fieldset>
+<% end %>

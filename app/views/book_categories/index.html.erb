@@ -1,0 +1,36 @@
+<h1>Book Categories</h1>
+
+<table class="pure-table" style="letter-spacing:normal;">
+  <thead>
+      <tr>
+
+      <th>Book</th>
+      <th>Category</th>
+      <th>Author</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @book_categories.each do |book_category| %>
+        <tr>
+        <td><%= book_category.book.title %></td>
+        <td><%= book_category.category.title %></td>
+        <td>
+        
+            <%= book_category.book.author.last_name %> , 
+            <%= book_category.book.author.first_name %>
+        </td>
+        <td><%= link_to 'Show', book_category %></td>
+        <td><%= link_to 'Edit', edit_book_category_path(book_category) %></td>
+        <td><%= link_to 'Destroy', book_category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Book category', new_book_category_path %>

@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<div class="pure-g">
+<div class="pure-u-1-4">
+    <%= @book.title %>
+    <div> Written by:
+
+    <%= @book.author.last_name %> ,
+    <%= @book.author.first_name %>
+    </div>
+</div>
+</div>
+<%= link_to 'Edit', edit_book_path(@book) %> |
+<%= link_to 'Back', books_path %>

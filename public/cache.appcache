@@ -1,0 +1,16 @@
+CACHE MANIFEST
+
+#ver 223
+
+CACHE:
+books/mob/index
+stylesheets/normalize.css
+stylesheets/responsive.css
+stylesheets/pure-min.css
+stylesheets/app-custom.css
+assets/books_cljs.js
+
+NETWORK:
+*
+
+FALLBACK:

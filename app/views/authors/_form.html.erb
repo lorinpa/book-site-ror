@@ -1,0 +1,29 @@
+<%= form_for(@author, html: {class:"pure-form pure-form-stacked padded_form"}) do |f| %>
+  <% if @author.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@author.errors.count, "error") %> prohibited this author from being saved:</h2>
+
+      <ul>
+      <% @author.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+<% end %>
+
+<% if flash[:duplicate_record_exception] %>
+<div id="error_explanation">
+    <%= flash[:duplicate_record_exception] %>
+</div>
+<% end %>
+    <fieldset>
+        <legend>Author Form</legend>
+
+        <%= f.label :first_name %>
+        <%= f.text_field :first_name %>
+
+        <%= f.label :last_name %>
+        <%= f.text_field :last_name %>
+      <%= f.submit :class => "pure-button pure-button-primary"  %>
+    </fieldset>
+<% end %>

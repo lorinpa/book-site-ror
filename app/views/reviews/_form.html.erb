@@ -1,0 +1,28 @@
+
+<%= form_for(@review, html: {class:"pure-form pure-form-stacked", style: "padding:10px;margin:6px;"}) do |f| %>
+  <% if @review.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@review.errors.count, "error") %> prohibited this review from being saved:</h2>
+
+      <ul>
+      <% @review.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+    <fieldset>
+        <legend>Review a Book Form</legend>
+
+        <%= f.label :body %>
+        <%= f.text_area :body %>
+
+        <%= f.label :stars %>
+        <%= f.text_field :stars %>
+        
+        <%= select("review", "book_id", Book.all.collect {|p| [ p.title , p.id ] }, {include_blank: 'None'}) %>
+
+      <%= f.submit :class => "pure-button pure-button-primary actions"  %>
+    </fieldset>
+<% end %>

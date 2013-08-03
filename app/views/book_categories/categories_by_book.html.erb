@@ -1,0 +1,26 @@
+
+<h1><%= link_to(@book.title, book_path(:id => @book.id)) %></h1>
+
+<div>Written by:&nbsp;
+    <span style="font-size:larger;">
+        <%= link_to( @book.author.last_name + ", " +  @book.author.first_name, author_path(:id => @book.author.id)) %> 
+    </span>
+</div>
+<br/>
+
+<table class="pure-table" style="letter-spacing:normal;">
+  <thead>
+      <tr>
+      <th>Categories</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @book_categories.each do |book_category| %>
+        <tr>
+        <td><%= book_category.category.title %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+

@@ -1,0 +1,21 @@
+<%= form_for(@author, html: {class:"pure-form pure-form-stacked", style: "padding:10px;margin:6px;"}) do |f| %>
+  <% if @author.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@author.errors.count, "error") %> prohibited this auhor from being saved:</h2>
+
+      <ul>
+      <% @category.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+<% end %>
+    <fieldset>
+        <legend>Category Form</legend>
+
+        <%= f.label :title %>
+        <%= f.text_field :title %>
+
+      <%= f.submit :class => "pure-button pure-button-primary"  %>
+    </fieldset>
+<% end %>
